@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>For Piya ♡</title>
+
+<style>
+
+:root {
+
+  --pink:#f6c6d6;
+
+  --rose:#c75d82;
+
+  --cream:#fff8f5;
+
+  --ink:#704452;
+
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+
+  margin:0;
+
+  color:var(--ink);
+
+  font-family:Georgia,"Times New Roman",serif;
+
+  background:linear-gradient(150deg,#fff9f6,#fce5ed,#fff5f2);
+
+  text-align:center;
+
+  overflow-x:hidden;
+
+}
+
+section { padding:65px 20px; }
+
+.hero {
+
+  min-height:100svh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+.eyebrow {
+
+  letter-spacing:3px;
+
+  font:11px Arial,sans-serif;
+
+  text-transform:uppercase;
+
+  color:#a65a76;
+
+}
+
+h1 {
+
+  font-size:clamp(42px,12vw,76px);
+
+  line-height:1.03;
+
+  font-weight:normal;
+
+  margin:18px 0;
+
+}
+
+h2 { font-size:34px; font-weight:normal; margin:0 0 15px; }
+
+p { line-height:1.85; }
+
+.hero p { max-width:330px; }
+
+.flower { font-size:46px; animation:sway 3s ease-in-out infinite; }
+
+@keyframes sway {
+
+  0%,100% { transform:rotate(-7deg); }
+
+  50% { transform:rotate(7deg); }
+
+}
+
+button {
+
+  border:1px solid #d99bb1;
+
+  border-radius:30px;
+
+  background:#fffaf9;
+
+  color:#9c4c6a;
+
+  padding:14px 20px;
+
+  font:15px Georgia,serif;
+
+  cursor:pointer;
+
+  margin:6px;
+
+  box-shadow:0 5px 15px #c75d8210;
+
+}
+
+button:active { transform:scale(.97); }
+
+.primary { background:#c75d82; color:white; }
+
+.card {
+
+  max-width:440px;
+
+  margin:24px auto 0;
+
+  padding:27px 23px;
+
+  background:#ffffffa8;
+
+  border:1px solid #f0cbd8;
+
+  border-radius:24px;
+
+  box-shadow:0 10px 35px #b85d7910;
+
+}
+
+.hidden { display:none; }
+
+.note { font-size:18px; white-space:pre-line; }
+
+.grid {
+
+  max-width:440px;
+
+  margin:25px auto;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:10px;
+
+}
+
+.grid button { min-height:85px; line-height:1.5; }
+
+.letter {
+
+  text-align:left;
+
+  font-size:17px;
+
+  padding:28px 23px;
+
+  line-height:1.9;
+
+}
+
+.small { font:12px Arial,sans-serif; letter-spacing:1px; }
+
+footer { padding:40px 20px 65px; }
+
+.petal {
+
+  position:fixed;
+
+  top:-30px;
+
+  z-index:5;
+
+  pointer-events:none;
+
+  animation:fall linear forwards;
+
+}
+
+@keyframes fall {
+
+  to { transform:translateY(110vh) rotate(500deg); opacity:0.15; }
+
+}
+
+#surprise { scroll-margin-top:20px; }
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+  <div class="flower">🌸</div>
+
+  <div class="eyebrow">A little world made for you</div>
+
+  <h1>For my<br>favorite girl</h1>
+
+  <p>To Piya, my beautiful girl, my favorite person, and the girl I dream of calling my wife.</p>
+
+  <p><strong>18 months of us ♡</strong></p>
+
+  <button class="primary" onclick="document.querySelector('#surprise').scrollIntoView()">Open your surprise ♡</button>
+
+  <p class="small">MADE WITH LOVE, JUST FOR YOU</p>
+
+</section>
+
+<section id="surprise">
+
+  <div class="flower">💌</div>
+
+  <h2>Little things I need you to know</h2>
+
+  <p>Choose a little envelope, baby. Each one has something from my heart.</p>
+
+  <div class="grid">
+
+    <button onclick="showNote(0)">🌷<br>When you miss me</button>
+
+    <button onclick="showNote(1)">💗<br>When you need love</button>
+
+    <button onclick="showNote(2)">🌙<br>Before you sleep</button>
+
+    <button onclick="showNote(3)">💍<br>Our future</button>
+
+  </div>
+
+  <div id="note" class="card hidden" aria-live="polite">
+
+    <div class="flower">♡</div>
+
+    <p id="noteText" class="note"></p>
+
+    <button onclick="document.querySelector('#note').classList.add('hidden')">Fold this letter ♡</button>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="flower">🌹</div>
+
+  <h2>18 reasons, one for every month</h2>
+
+  <p>There are a million reasons, but let's start with one little list.</p>
+
+  <button class="primary" onclick="revealReason()">Give me a reason ♡</button>
+
+  <div id="reason" class="card hidden" aria-live="polite"></div>
+
+</section>
+
+<section>
+
+  <div class="flower">🕊️</div>
+
+  <h2>A little promise</h2>
+
+  <div class="card">
+
+    <p class="note">I can't promise that every day will be perfect, baby, but I can promise that your place in my heart is special and that I want to keep learning how to love you better.</p>
+
+    <button onclick="document.getElementById('promiseExtra').classList.toggle('hidden')">There's more, baby ♡</button>
+
+    <p id="promiseExtra" class="hidden note">I want the ordinary days with you, the sleepy mornings, the silly jokes, the hugs after a long day, and all the tiny moments that turn a house into our home. I want to build that future with you, one step at a time.</p>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="flower">💌</div>
+
+  <h2>One last thing...</h2>
+
+  <p>Save this one for the end, my love.</p>
+
+  <button class="primary" onclick="document.getElementById('finalLetter').classList.remove('hidden'); document.getElementById('finalLetter').scrollIntoView({behavior:'smooth'})">Open my heart ♡</button>
+
+  <div id="finalLetter" class="card letter hidden">
+
+    <p>My Piya,</p>
+
+    <p>Happy 18 months, my love. One year and six months, and I still get excited thinking about the future I want with you. I wish I could be beside you today, hold you close, kiss your forehead, and tell you how much you mean to me while looking into your eyes.</p>
+
+    <p>Until that day comes, I wanted to make you a little place on the internet that belongs to our story. It doesn't have our photos or fancy things, because what makes it special isn't the design. It's the person I made it for.</p>
+
+    <p>You're the girl I want to share my little victories with, the girl I want beside me when life gets tiring, and the girl I picture when I dream about coming home to my own family one day. I want to experience the simple things with you as much as the big things. I want to keep discovering new reasons to love you.</p>
+
+    <p>Thank you for being my girl and for being such a precious part of my life. I hope we get to celebrate so many more anniversaries together, until one day I can celebrate them with my wife in my arms instead of a screen between us.</p>
+
+    <p>I love you, Piya. Nhebek barcha. Happy 18 months, my beautiful girl. This is our little story, and I can't wait for all the pages we haven't written yet.</p>
+
+    <p>Forever dreaming of our future,</p>
+
+    <p><strong>Your boy ♡</strong></p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <div class="flower">🌸</div>
+
+  <p>18 months down, a lifetime of memories to dream about.</p>
+
+  <p><strong>For Piya, with all my love ♡</strong></p>
+
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to the beginning ↑</button>
+
+</footer>
+
+<script>
+
+const notes = [
+
+  "Baby, if you miss me right now, imagine me holding you close and kissing your forehead. The distance is real, but so is my love for you. I can't wait for the day I can hug you for real. ♡",
+
+  "You don't have to be perfect to be precious to me. You're loved for being you, in your happy moments and your tired ones too. I hope you always remember how special you are to me.",
+
+  "Close your eyes, my love. Imagine a little kiss on your forehead and my arms around you. I wish I could tell you goodnight in person. Sleep peacefully, my beautiful girl. ♡",
+
+  "When I picture my future, I picture the ordinary days with you: waking up together, making breakfast, laughing at silly things, and coming home to each other. I hope we get to build that future together."
+
+];
+
+const reasons = [
+
+  "Because your smile can make an ordinary day feel special.",
+
+  "Because I love hearing your voice.",
+
+  "Because your laugh is one of my favorite sounds.",
+
+  "Because I want to learn more about you every day.",
+
+  "Because I love your little habits.",
+
+  "Because you make me dream about our future.",
+
+  "Because I want to share the simple things with you.",
+
+  "Because I love seeing you happy.",
+
+  "Because you are uniquely you.",
+
+  "Because I want to keep making memories with you.",
+
+  "Because I love the way you make me smile.",
+
+  "Because I want to understand you better.",
+
+  "Because I love our silly moments.",
+
+  "Because I want to celebrate more anniversaries with you.",
+
+  "Because I want to hold your hand in real life.",
+
+  "Because I want to grow alongside you.",
+
+  "Because I see you in my dreams of home.",
+
+  "Because after all these months, I still choose you. ♡"
+
+];
+
+let used = [];
+
+function showNote(i) {
+
+  document.getElementById('noteText').textContent = notes[i];
+
+  document.getElementById('note').classList.remove('hidden');
+
+}
+
+function revealReason() {
+
+  if (used.length === reasons.length) used = [];
+
+  let available = reasons.map((_,i)=>i).filter(i=>!used.includes(i));
+
+  let i = available[Math.floor(Math.random()*available.length)];
+
+  used.push(i);
+
+  const box = document.getElementById('reason');
+
+  box.textContent = (used.length) + " / 18 ♡\n\n" + reasons[i];
+
+  box.classList.remove('hidden');
+
+}
+
+function makePetal() {
+
+  const p = document.createElement('div');
+
+  p.className = 'petal';
+
+  p.textContent = ['🌸','♡','🌷'][Math.floor(Math.random()*3)];
+
+  p.style.left = Math.random()*100+'vw';
+
+  p.style.fontSize = (14+Math.random()*18)+'px';
+
+  p.style.animationDuration = (7+Math.random()*6)+'s';
+
+  document.body.appendChild(p);
+
+  setTimeout(()=>p.remove(),14000);
+
+}
+
+setInterval(makePetal,1300);
+
+</script>
+
+</body>
+
+</html>
